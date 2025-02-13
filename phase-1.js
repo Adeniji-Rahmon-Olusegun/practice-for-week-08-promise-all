@@ -27,12 +27,24 @@ function liftWeights() {
 
 function workout() {
   // refactor this code to use Promise.all
-  stretch()
-    .then(runOnTreadmill)
-    .then(liftWeights)
-    .then(() => console.log("done working out"))
-    .catch((err) => console.log(err));
+  // stretch()
+  //   .then(runOnTreadmill)
+  //   .then(liftWeights)
+  //   .then(() => console.log("done working out"))
+  //   .catch((err) => console.log(err));
+
+  const superpromise = Promise.all([
+    stretch(),
+    runOnTreadmill(),
+    liftWeights()
+  ]);
+
+  superpromise
+    .then()
+    .then(() => console.log("done working out"));
 }
+
+
 
 
 /* ============================ TEST YOUR CODE ============================
